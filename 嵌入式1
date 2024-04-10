@@ -1,1 +1,71 @@
 
+一、相关术语
+
+硬件部分
+1.封装 package 
+常用的可分为通孔封装和贴片封装
+	通孔封装主要有单列直插 （Single-in-line Package, SIP）、双列直插（Dual-in-linePackage,DIP）、Z字形直插式封装（Zigzag-in-line Package, ZIP）。
+	常见的贴片封装主要有小外形封装（Small Outline Package, SOP）、紧缩小外形封装（Shrink Small Outline Package, SSOP）、四方扁平封装（Quad-Flat Package,QFP）、塑料薄方封装（Plastic-Low-profile Quad-Flat Package,LQFP）、塑料扁平组件式封装（Plastic FlatPackage, PFP）、插针网格阵列封装（Ceramic Pin Grid Array Package,PGA）、球栅阵列封装(Ball Grid Array Package, BGA) 
+2.	印刷电路板 Printed Circuit Board，PCB
+3.	动态可读写随机存储器（Dynamic Random Access Memory,DRAM）
+4.	静态可读写随机存储器（Static Random Access Memory, SRAM）
+5.	只读存储器（Read Only Memory,ROM）
+分为固定 ROM、可编程 ROM（即 PROM,Programmable ROM）和可擦除 ROM（即EPROM，Erase PROM）3种
+6.	闪存，一种电可擦除可编程只读存储器（Electrically Erasable ProgrammableRead Only Memory，EEPROM）
+7.	模拟量和开关量
+
+通信部分
+1.	并行通信 Parallel communication
+2.	串行通信 serial communication 在嵌入式系统中，串行通信一词一般特指用串行通信接口（UART）与 RS232 芯片连接的通信方式。
+3.	串行外设接口（Serial Peripheral Interface, SPI）
+4.	集成电路互联（12C）总线(IIC（Inter-Integrated Circuit）其实是IICBus简称)
+5.	通用串行总线（Universal Serial Bus, USB）
+6.	控制器局域网 (Controller Area Network , CAN)
+7.	边界扫描测试协议（Joint Test Action Group , JTAG)
+8.	串行线调试（Serial Wire Debug, SWD）技术使用2针调试端口，是JTAG 的低针数和高性能替代产品
+
+功能模块部分
+1.	通用输入输出（General Purpose I/O,GPIO）
+2.	模数转换与数模转换：模数转换（Analog to Digital Convert,ADC）的功能是将电压信号（模拟量）转换为对应的数字量。数模转换（Digital to Analog Convert,DAC）的功能则是将数字量转换电压信号（模拟量）。
+3.	脉冲宽度调制器（Pulse Width Modulator,PWM）是一个数模转换器，可以产生一个高电平和低电平之间重复交替的输出信号，这个信号就是PWM信号。
+4.	看门狗（Watch Dog）是一个了防止程序跑飞而设计的一种自动定时器
+5.	液晶显示（Liquid Crystal Display,LCD）
+6.	发光二极管（Light Emitting Diode, LED）
+7.	键盘
+
+
+
+二 开发板的运行
+
+1.	把板子接到你的电脑
+2.
+打开环境，导入工程。打开集成开发环境 AHL-GEC-IDE，单击菜单“文 
+件”→“导入工程”，随后选择电子资源中“..\ 04-Software\CH01\ AHL-STM32L431-Test” 
+（文件夹名就是工程名。注意：路径中不能包含汉字，也不能太深）。导入工程后，左侧 
+为工程树形目录，右侧为文件内容编辑区，初始显示 main.c 文件内容
+
+
+
+3.编译工程。单击菜单“编译”→“编译工程”，就开始编译。正常情况下， 
+编译后会显示“编译成功!”。
+ 
+
+
+4.连接 GEC。单击菜单“下载”→“串口更新”，将进入更新窗体界面。单击 
+“连接 GEC”查找目标 GEC，若提示“成功连接……”，可进行下一步操作。
+(因为连上了本来那个led小灯就会亮,会自动运行示例程序)
+ 
+若连接不成功，则可参阅电子资源中“..\02-Document”文件夹内的快速指南文档中的“常见问题及解决办法”一节进行解决。 
+5.下载机器码。单击“选择文件”按钮，导入被编译工程目录下 Debug 中的.hex 
+文件，然后单击“一键自动更新”按钮，等待程序自动更新完成。当更新完成之后，程序 
+将自动运行。 (跟初始执行的数据是一样的)
+ 
+
+6.	通过串口观察运行情况。
+① 观察程序运行过程。进入“工具”→“串口工具”， 
+选择其中一个串口，波特率设为 115200 并打开，串口调试工具页面会显示三色灯的状态、 
+MCU 温度、环境温度（若没有显示，则关闭该串口，打开另一个串口）。
+
+ 
+② 验证串口收发。关闭已经打开的串口，打开另一个串口，波特率选择默认参数，在“发送数据框”中输入字符串，单击“发送数据”按钮。正常情况下，主板会回送数据给 PC，并在接收框中显示
+ 
